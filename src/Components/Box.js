@@ -1,6 +1,8 @@
+import "./grid.css"
+
 const Box = ({ value, handleClick }) => {
   return (
-    <button onClick={handleClick}>{value}</button>
+    <button className="box" onClick={handleClick}>{value}</button>
   );
 }
 

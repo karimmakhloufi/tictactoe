@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 600px;
+  height: 600px;
+}
+
+.box {
+  font-size: xx-large;
+  height: 200px;
+  width: 200px;
+}
