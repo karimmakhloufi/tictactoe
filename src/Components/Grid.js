@@ -2,7 +2,7 @@ import { useState, Fragment } from "react";
 import Box from "./Box";
 
 const Grid = () => {
-  const [player, setPlayer] = useState(0);
+  const [turn, setTurn] = useState(0);
   const [boxes, setBoxes] = useState([
     [0, 0, 0],
     [0, 0, 0],
@@ -11,14 +11,23 @@ const Grid = () => {
 
   const handleClick = (idx, idx2) => {
     if (boxes[idx][idx2] === 0) {
-      console.log(idx, idx2);
       const currentBoxes = [...boxes];
-      currentBoxes[idx][idx2] = (player % 2) + 1;
-      setPlayer(player + 1);
+      currentBoxes[idx][idx2] = (turn % 2) + 1;
+      setTurn(turn + 1);
       setBoxes(currentBoxes);
     } else {
       alert("non");
     }
+  };
+
+  const handleReset = () => {
+    const emptyArray = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ];
+    setBoxes(emptyArray);
+    setTurn(0);
   };
 
   return (
@@ -35,6 +44,7 @@ const Grid = () => {
           <br></br>
         </Fragment>
       ))}
+      <button onClick={handleReset}>Reset grid</button>
     </div>
   );
 };
